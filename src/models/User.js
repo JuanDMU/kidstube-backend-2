@@ -55,15 +55,12 @@ const userSchema = new mongoose.Schema(
 );
 
 
-/* 🔐 Hash password & PIN before saving */
 userSchema.pre("save", async function (next) {
-  // Hash password
   if (this.isModified("password")) {
     const salt = await bcrypt.genSalt(10);
     this.password = await bcrypt.hash(this.password, salt);
   }
 
-  // Hash PIN
   if (this.isModified("pin")) {
     const salt = await bcrypt.genSalt(10); //genSalt is used to generate a random string to make the hash more secure
     this.pin = await bcrypt.hash(this.pin, salt);
