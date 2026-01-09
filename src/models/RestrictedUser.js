@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
-const User = require("./user");
+const User = require("./User");
 
 const restrictedUserSchema = new mongoose.Schema(
     {
-        name: {
+        restrictedUserName: {
             type: String,
             required: true,
             trim: true,

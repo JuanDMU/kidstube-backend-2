@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs");
 
 const playlistSchema = new mongoose.Schema(
     {
-        name: {
+        playlistName: {
             type: String,
             required: true,
             trim: true,
