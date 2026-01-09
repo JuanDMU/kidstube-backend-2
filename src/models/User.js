@@ -66,7 +66,6 @@ userSchema.pre("save", async function (next) {
     this.pin = await bcrypt.hash(this.pin, salt);
   }
 
-  next();
 });
 
 userSchema.methods.comparePassword = async function (enteredPassword) {
